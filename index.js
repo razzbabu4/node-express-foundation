@@ -14,4 +14,5 @@
 const path = require("path")
 
 // console.log(path.dirname("/C:/Projects/learning-node/index.js"));
-console.log(path.parse("/C:/Projects/learning-node/index.js"));
+// console.log(path.parse("/C:/Projects/learning-node/index.js"));
+console.log(path.join("/C:/Projects/learning-node/", "local-1.js"));
