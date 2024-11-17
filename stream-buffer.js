@@ -12,14 +12,22 @@ server.on("request", (req, res) => {
     // creating reading stream 
     // const readableStream = fs.createReadStream('./text/read.txt') // or
     // const readableStream = fs.createReadStream(__dirname + '/text/read.txt') // or
-    const readableStream = fs.createReadStream(process.cwd() + '/text/read.txt');
+    const readableStream = fs.createReadStream(process.cwd() + '/text/read-bhul.txt');
 
     readableStream.on('data', (buffer) => {
+        res.statusCode = 200;
         res.write(buffer)
     })
 
     readableStream.on('end', () => {
-        res.end(`Hello from node`)
+        res.statusCode = 200;
+        res.end(`The stream is over`)
+    })
+
+    readableStream.on('error', (error) => {
+        console.log(error);
+        res.statusCode = 500;
+        res.end(`Something went wrong`)
     })
 
 })
